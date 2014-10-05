@@ -7,8 +7,7 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path')
-  , mongoose = require('mongoose');
+  , path = require('path');
 
 var app = express();
 
@@ -24,26 +23,18 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-mongoose.connect("mongodb://localhost/cmpe273");
-var myschema = new mongoose.Schema({
-	make:String
-});
-var cars2 = mongoose.model('Cars',myschema);
- app.set('cars2',cars2);
-//exports.cars2 = cars2;
-
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-
+// Defining routes
 app.get('/', routes.index);
 app.get('/store', routes.store);
 app.get('/users', user.list);
 app.get('/store/tv',routes.tv);
 app.get('/store/cars',routes.cars);
 app.get('/store/routers',routes.routers);
+app.get('/store/routers/:id',routes.rdisplay);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

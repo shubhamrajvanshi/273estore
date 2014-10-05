@@ -1,13 +1,14 @@
-db.catalog.insert([{category:"tv", brand:"Sony",diagl:30,type:"HD",length:15,width:10,height:14,price:"400$",desc:"Best selling TV",warnty:"2yrs"},
-                  {category:"tv", brand:"Lg",diagl:20,type:"Not HD",length:8,width:8,height:10,price:"599$",desc:"Have highest sales",warnty:"3yrs"},
-				  {category:"tv", brand:"Philips",diagl:20,type:"HD",length:12,width:18,height:6,price:"799$",desc:"Portable and wireless",warnty:"2yrs"},
-				  {category:"tv", brand:"Apple",diagl:22,type:"HD",length:13,width:20,height:7,price:"999$",desc:"TV in demand",warnty:"2yrs"},
-				  {category:"routers", brand:"Airlive",dualBand:"yes",price:"999$",range:"300mtrs",numberofwifi:5,desc:"Covers 2% of market"},
-                  {category:"routers", brand:"Belkin",dualBand:"yes",price:"999$",range:"300mtrs",numberofwifi:5,desc:"Covers 2% of market"},
-				  {category:"routers", brand:"Linksys",dualBand:"yes",price:"999$",range:"300mtrs",numberofwifi:5,desc:"Covers 2% of market"},
-				  {category:"routers", brand:"Netgear",dualBand:"yes",price:"999$",range:"300mtrs",numberofwifi:5,desc:"Covers 2% of market"},
-                  {category:"cars", make:"2008",model:"Tesla M990",price:"35,999$",yom:"2008",condition:"good",mileage:"100mph",desc:"Have equivalent resale value"},
-                  {category:"cars", make:"2011",model:"Lamborgini L6",price:"60,999$",yom:"2013",condition:"Excellent",mileage:"105mph",desc:"Brand new"},
-				  {category:"cars", make:"2002",model:"Beamer TZ5",price:"12,999$",yom:"2008",condition:"ugly",mileage:"50mph",desc:"Have equivalent resale value"},
-				  {category:"cars", make:"2000",model:"Mercedes M3S56",price:"19,999$",yom:"2008",condition:"old",mileage:"40mph",desc:"Used for 14 years"}
-				  ])
+use cmpe273;
+db.createCollection("catalog");
+db.tv.insert({category:"tv", brand:"Sony",diagl:30,type:"HD",length:15,width:10,height:14,price:"400$",desc:"Best selling TV",warnty:"2yrs"});
+db.tv.insert({category:"tv", brand:"Lg",diagl:20,type:"Not HD",length:8,width:8,height:10,price:"599$",desc:"Have highest sales",warnty:"3yrs"});
+db.tv.insert({category:"tv", brand:"Samsung",diagl:20,type:"HD",length:12,width:18,height:6,price:"799$",desc:"Portable and wireless",warnty:"2yrs"});
+db.tv.insert({category:"tv", brand:"Vizio",diagl:22,type:"HD",length:13,width:20,height:7,price:"999$",desc:"TV in demand",warnty:"2yrs"});
+db.routers.insert({category:"routers", brand:"Cisco",dualBand:"yes",price:"110$",range:"300mtrs",numberofwifi:5,desc:"Covers 2% of market"});
+db.routers.insert({category:"routers", brand:"Belkin",dualBand:"yes",price:"99$",range:"300mtrs",numberofwifi:5,desc:"Covers 2% of market"});
+db.routers.insert({category:"routers", brand:"Trendent",dualBand:"yes",price:"89$",range:"300mtrs",numberofwifi:5,desc:"Covers 2% of market"});
+db.routers.insert({category:"routers", brand:"Netgear",dualBand:"yes",price:"69$",range:"300mtrs",numberofwifi:5,desc:"Covers 2% of market"});
+db.cars.insert({category:"cars", make:"2008",model:"Ferrari",price:"135,999$",yom:"2008",condition:"good",mileage:"100mph",desc:"Have equivalent resale value"});
+db.cars.insert({category:"cars", make:"2011",model:"Lambhorgini L6",price:"160,999$",yom:"2013",condition:"Excellent",mileage:"105mph",desc:"Brand new"});
+db.cars.insert({category:"cars", make:"2002",model:"Honda",price:"12,999$",yom:"2008",condition:"ugly",mileage:"50mph",desc:"Have equivalent resale value"});
+db.cars.insert({category:"cars", make:"2000",model:"Mercedes M3S56",price:"89,999$",yom:"2008",condition:"old",mileage:"40mph",desc:"Used for 14 years"});
