@@ -19,8 +19,14 @@ exports.tv = function(req, res){
 	};
 	
 exports.cars = function(req, res){
-	  res.render('cars');
-	  console.log('Rendered cars page');
+	// var cars2 = require("app").cars2;
+	var cars2 = req.app.get('cars2');
+	new cars2({make:"2008"}).save(); 
+	cars2.findOne({},function(err,docs){
+		console.log(docs);
+		res.render('cars',{cars3:docs});
+	});
+	console.log('Rendered cars page');
 		};	
 
 exports.routers = function(req, res){
