@@ -9,6 +9,7 @@ db.routers.insert({category:"routers", brand:"Belkin",dualBand:"yes",price:"99$"
 db.routers.insert({category:"routers", brand:"Trendent",dualBand:"yes",price:"89$",range:"300mtrs",numberofwifi:5,desc:"Covers 2% of market"});
 db.routers.insert({category:"routers", brand:"Netgear",dualBand:"yes",price:"69$",range:"300mtrs",numberofwifi:5,desc:"Covers 2% of market"});
 db.cars.insert({category:"cars", make:"2008",model:"Ferrari",price:"135,999$",yom:"2008",condition:"good",mileage:"100mph",desc:"Have equivalent resale value"});
-db.cars.insert({category:"cars", make:"2011",model:"Lambhorgini L6",price:"160,999$",yom:"2013",condition:"Excellent",mileage:"105mph",desc:"Brand new"});
+db.cars.insert({category:"cars", make:"2011",model:"Lambhorgini",price:"160,999$",yom:"2013",condition:"Excellent",mileage:"105mph",desc:"Brand new"});
 db.cars.insert({category:"cars", make:"2002",model:"Honda",price:"12,999$",yom:"2008",condition:"ugly",mileage:"50mph",desc:"Have equivalent resale value"});
-db.cars.insert({category:"cars", make:"2000",model:"Mercedes M3S56",price:"89,999$",yom:"2008",condition:"old",mileage:"40mph",desc:"Used for 14 years"});
+db.cars.insert({category:"cars", make:"2000",model:"Mercedes",price:"89,999$",yom:"2008",condition:"old",mileage:"40mph",desc:"Used for 14 years"});
+	
