@@ -36,7 +36,7 @@ app.get('/store/tv',routes.tv);
 app.get('/store/cars',routes.cars);
 app.get('/store/routers',routes.routers);
 
-app.get('/store/tv/:id',routes.rdisplay);
+app.get('/store/tv/:id',routes.tdisplay);
 app.get('/store/routers/:id',routes.rdisplay);
 app.get('/store/cars/:id',routes.cdisplay);
 

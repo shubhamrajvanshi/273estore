@@ -3,7 +3,22 @@
  * GET home page.
  */
 var mongoose = require('mongoose');
+//var monk = require('monk');
+//var db = monk('localhost:27017/cmpe273');
 mongoose.connect("mongodb://localhost/cmpe273");
+
+//exports.tv = function(req,res){
+//	//var db = req.db;
+//	console.log("my db name is " + db);
+//	var collection = db.get('tv');
+//	collection.find({},{},function(e,docs){
+//		console.log(docs[0].brand);
+//		res.render('tv',{"tvs":docs});
+//		});  
+//};
+
+
+
 
 //Creating Schema's
 var routerschema = new mongoose.Schema({
@@ -14,16 +29,6 @@ var routerschema = new mongoose.Schema({
 	range : String,
 	numberofwifi : Number,
 	desc : String	
-});
-var carschema = new mongoose.Schema({
-	category : String,
-	make : String,
-	model : String,
-	price : String,
-	yom : String,
-	condition : String,
-	mileage : String,
-	desc : String
 });
 
 var tvschema = new mongoose.Schema({
@@ -39,11 +44,25 @@ var tvschema = new mongoose.Schema({
 	warnty : String
 });
 
+var carschema = new mongoose.Schema({
+	category : String,
+	make : String,
+	model : String,
+	price : String,
+	yom : String,
+	condition : String,
+	mileage : String,
+	desc : String
+});
+
+
+
 //Mongo to mongoose mapping
 var carmongo = mongoose.model('cars',carschema);
 var tvmongo = mongoose.model('tv',tvschema);
 var routermongo = mongoose.model('routers',routerschema);
-
+//console.log(tvmongo);
+//console.log(carmongo);
 // var catalogmodel = mongoose.model('catalog',schema);
 // app.set('cars2',cars2);
 // app.set('catalogvar',catalogmodel);
@@ -61,13 +80,11 @@ exports.store = function(req, res){
 	  console.log('Rendered index page');
 	};
 
-exports.tv = function(req, res){
+exports.tv = function(req,res){
 	tvmongo.find({},function(err,docs){
-		if(err)
-			console.log(err);
-		else
-		console.log(docs);
-		res.render('tv',{tvs:docs});
+	//	console.log(docs);
+		res.render('tv',{"tvs":docs});
+	//	console.log(docs);
 	});
 	  console.log('Rendered TV page');
 	};
@@ -119,6 +136,9 @@ exports.cdisplay = function(req,res){
 
 exports.tdisplay = function(req,res){
 	var iddata = req.params.id;
-	res.render('id',{data:iddata});
+	tvmongo.findOne({brand:iddata},function(err,docs){
+		console.log(docs);
+	res.render('idt',{"data":docs});
 //	res.write(req.params.id);
+	});
 };
