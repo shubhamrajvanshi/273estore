@@ -113,7 +113,6 @@ exports.cdisplay = function(req,res){
 	carmongo.findOne({model:iddata},function(err,docs){
 //		console.log(docs);
 		res.render('id',{data:docs});
-	
 //	res.write(req.params.id);
 });
 };
