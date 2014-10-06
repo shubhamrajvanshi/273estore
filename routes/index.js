@@ -4,7 +4,9 @@
  */
 var mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost/cmpe273");
-var myschema = new mongoose.Schema({
+
+//Creating Schema's
+var routerschema = new mongoose.Schema({
 	category: String,
 	brand : String,
 	dualBand : String,
@@ -13,7 +15,34 @@ var myschema = new mongoose.Schema({
 	numberofwifi : Number,
 	desc : String	
 });
-var cars2 = mongoose.model('routers',myschema);
+var carschema = new mongoose.Schema({
+	category : String,
+	make : String,
+	model : String,
+	price : String,
+	yom : String,
+	condition : String,
+	mileage : String,
+	desc : String
+});
+
+var tvschema = new mongoose.Schema({
+	category : String,
+	brand : String,
+	diagl : Number,
+	type : String,
+	length : Number,
+	width : Number,
+	height : Number,
+	price : String,
+	desc : String,
+	warnty : String
+});
+
+//Mongo to mongoose mapping
+var carmongo = mongoose.model('cars',carschema);
+var tvmongo = mongoose.model('tv',tvschema);
+var routermongo = mongoose.model('routers',routerschema);
 
 // var catalogmodel = mongoose.model('catalog',schema);
 // app.set('cars2',cars2);
@@ -26,15 +55,24 @@ exports.index = function(req, res){
   
   console.log('Redirected to Store index page');
 };
+
 exports.store = function(req, res){
 	  res.render('index');
 	  console.log('Rendered index page');
 	};
 
 exports.tv = function(req, res){
-	  res.render('tv');
+	tvmongo.find({},function(err,docs){
+		if(err)
+			console.log(err);
+		else
+		console.log(docs);
+		res.render('tv',{tvs:docs});
+	});
 	  console.log('Rendered TV page');
 	};
+	
+	
 	
 exports.cars = function(req, res){
 //  var cars2 = require("app").cars2;
@@ -46,22 +84,42 @@ exports.cars = function(req, res){
 //		console.log(docs);
 //		res.render('cars',{cars3:docs});
 //	});
+	carmongo.find({},function(err,docs){
+	res.render('cars',{cars:docs});
+	});
 	console.log('Rendered cars page');
 		};	
 
 exports.routers = function(req, res){
 	// var cars2 = req.app.get('cars2');
-	cars2.find({},function(err,docs){
-		console.log(docs);
+	routermongo.find({},function(err,docs){
+	//	console.log(docs);
 		res.render('routers',{router:docs});
 	});
-	  //res.render('routers');
+	  
 	  console.log('Rendered routers page');
 			};
 
 exports.rdisplay = function(req,res){
-	res.write(req.params.id);
-//	res.write(req.params[1]);
-//	res.write(req.params[2]);
-	res.end();
+	var iddata = req.params.id;
+	routermongo.findOne({brand:iddata},function(err,docs){
+	res.render('idr',{data:docs});
+//	res.write(req.params.id);
+	});
+};
+
+exports.cdisplay = function(req,res){
+	var iddata =req.params.id;
+	carmongo.findOne({model:iddata},function(err,docs){
+//		console.log(docs);
+		res.render('id',{data:docs});
+	
+//	res.write(req.params.id);
+});
+};
+
+exports.tdisplay = function(req,res){
+	var iddata = req.params.id;
+	res.render('id',{data:iddata});
+//	res.write(req.params.id);
 };

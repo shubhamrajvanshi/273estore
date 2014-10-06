@@ -31,10 +31,14 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/store', routes.store);
 app.get('/users', user.list);
+
 app.get('/store/tv',routes.tv);
 app.get('/store/cars',routes.cars);
 app.get('/store/routers',routes.routers);
+
+app.get('/store/tv/:id',routes.rdisplay);
 app.get('/store/routers/:id',routes.rdisplay);
+app.get('/store/cars/:id',routes.cdisplay);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
