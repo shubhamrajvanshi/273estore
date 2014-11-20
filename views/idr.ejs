@@ -67,8 +67,11 @@
                         <br><b>Price :</b> <%=data.price%>
                         <br><b>Range :</b> <%=data.range%>
                         <br><b>WiFi Networks Supported :</b> <%=data.numberofwifi%>
+                         <br><b>Product available from :</b> <%=data.startdate%>
+                        <br><b>Product last date :</b> <%=data.enddate%>
                         <br><br>
                         <br><br><center>
+                        <a href="http://localhost:8080/cmpe273rest/?<%=data.brand%>" class="btn btn-default" id="java button">Buy Now</a>
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
                     </div>
                 </div>
@@ -77,6 +80,8 @@
         <!-- /#page-content-wrapper -->
 
     </div>
+    
+    
     <!-- /#wrapper -->
 
     <!-- jQuery Version 1.11.0 -->

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="application/json" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -61,16 +61,22 @@
                         </center>
                         <p></p>
                         <p></p>
+                        <form action="http://localhost:8080/cmpe273rest/" method="POST">
                         <br><b>Brand :</b> <%=data.brand%>
                         <br><b>Description :</b> <%=data.desc%>
                         <br><b>Type :</b> <%=data.type%>
                         <br><b>Price :</b> <%=data.price%>
                         <br><b>Warranty :</b> <%=data.warnty%>
                         <br><b>Height :</b> <%=data.height%>
-                        <br><b>Diagnol/Inches :</b> <%=data.diag1%>
+                        <br><b>Diagnol/Inches :</b> <%=data.diagl%>
                         <br><b>Height :</b> <%=data.height%>
+                         <br><b>Product available from :</b> <%=data.startdate%>
+                        <br><b>Product last date :</b> <%=data.enddate%>
                         <br><br>
                         <br><br><center>
+                 <!--       <a href="http://localhost:8080/cmpe273rest/?<%=data.brand%>" class="btn btn-default" id="java button">Buy Now</a> -->
+					<input type="submit" value="Submit" onClick="http://localhost:8080/cmpe273rest/">
+                       </form>
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
                     </div>
                 </div>

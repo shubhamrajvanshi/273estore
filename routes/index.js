@@ -17,9 +17,6 @@ mongoose.connect("mongodb://localhost/cmpe273");
 //		});  
 //};
 
-
-
-
 //Creating Schema's
 var routerschema = new mongoose.Schema({
 	category: String,
@@ -28,8 +25,10 @@ var routerschema = new mongoose.Schema({
 	price : String,
 	range : String,
 	numberofwifi : Number,
-	desc : String	
-});
+	desc : String,
+	startdate: Date ,
+	enddate: Date
+	});
 
 var tvschema = new mongoose.Schema({
 	category : String,
@@ -41,8 +40,10 @@ var tvschema = new mongoose.Schema({
 	height : Number,
 	price : String,
 	desc : String,
-	warnty : String
-});
+	warnty : String,
+	startdate: Date ,
+	enddate: Date
+	});
 
 var carschema = new mongoose.Schema({
 	category : String,
@@ -52,14 +53,16 @@ var carschema = new mongoose.Schema({
 	yom : String,
 	condition : String,
 	mileage : String,
-	desc : String
-});
+	desc : String,
+	startdate: Date,
+	enddate: Date
+	});
 
 
 
 //Mongo to mongoose mapping
 var carmongo = mongoose.model('cars',carschema);
-var tvmongo = mongoose.model('tv',tvschema);
+var tvmongo = mongoose.model('tvs',tvschema);
 var routermongo = mongoose.model('routers',routerschema);
 //console.log(tvmongo);
 //console.log(carmongo);
@@ -76,8 +79,8 @@ exports.index = function(req, res){
 };
 
 exports.store = function(req, res){
-	  res.render('index');
-	  console.log('Rendered index page');
+	res.render('index');
+	console.log('Rendered index page');
 	};
 
 exports.tv = function(req,res){
@@ -86,7 +89,7 @@ exports.tv = function(req,res){
 		res.render('tv',{"tvs":docs});
 	//	console.log(docs);
 	});
-	  console.log('Rendered TV page');
+	console.log('Rendered TV page');
 	};
 	
 	
@@ -105,7 +108,7 @@ exports.cars = function(req, res){
 	res.render('cars',{cars:docs});
 	});
 	console.log('Rendered cars page');
-		};	
+	};
 
 exports.routers = function(req, res){
 	// var cars2 = req.app.get('cars2');
@@ -113,8 +116,8 @@ exports.routers = function(req, res){
 	//	console.log(docs);
 		res.render('routers',{router:docs});
 	});
-	  
-	  console.log('Rendered routers page');
+	
+	console.log('Rendered routers page');
 			};
 
 exports.rdisplay = function(req,res){
